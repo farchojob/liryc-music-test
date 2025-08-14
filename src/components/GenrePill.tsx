@@ -33,7 +33,7 @@ export function GenrePill({ active, label, onClick, className }: GenrePillProps)
         "px-8",
         "genre-pill", // Force Inter-Regular (400) for genre pills
         active && "border-transparent bg-[rgba(0,114,100,1)] text-white",
-        !active && "text-foreground",
+        !active && "border-transparent bg-[rgba(24,24,24,1)] text-white",
         className
       )}
     >

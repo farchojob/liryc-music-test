@@ -62,9 +62,9 @@ export function RightPanel() {
             size="icon"
             aria-label="Close band details panel"
             onClick={closeRightPanel}
-            className="h-auto w-auto p-1"
+            className="mt-1 h-auto w-auto p-1"
           >
-            <X className="h-5 w-5 text-neutral-300" strokeWidth={3} />
+            <X className="icon-close h-6 w-6" />
           </Button>
         </div>
         <div className="text-muted-foreground text-panel-body flex-1 space-y-4 text-base">
@@ -147,9 +147,9 @@ export function RightPanel() {
           size="icon"
           aria-label="Close band details panel"
           onClick={closeRightPanel}
-          className="ml-auto h-auto w-auto self-start p-1"
+          className="mt-1 ml-auto h-auto w-auto self-start p-1"
         >
-          <X className="h-5 w-5 text-neutral-300" strokeWidth={3} />
+          <X className="icon-close h-6 w-6" />
         </Button>
       </div>
       <p className="text-foreground/90 text-body text-sm leading-relaxed">{data.description}</p>

@@ -41,7 +41,7 @@ export function MobileSidebar() {
         <SheetContent data-testid="mobile-sidebar" side="left" className="bg-[var(--panel-bg)]">
           <SheetHeader className="p-4">
             <div className="justify-self-center">
-              <BrandMark variant="mobile" />
+              <BrandMark />
             </div>
             <SheetTitle className="sr-only">Menu</SheetTitle>
           </SheetHeader>

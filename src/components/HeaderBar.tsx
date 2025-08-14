@@ -33,7 +33,7 @@ export function HeaderBar() {
           <MobileSidebar />
         </div>
 
-        <BrandMark variant="desktop" />
+        <BrandMark />
 
         {/* Genre pills - hide on small/medium screens, show on lg+ */}
         <div

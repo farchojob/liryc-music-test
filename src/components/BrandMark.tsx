@@ -2,12 +2,7 @@
 
 import Image from "next/image";
 
-type BrandMarkProps = {
-  variant: "mobile" | "desktop";
-};
-
-export function BrandMark({ variant }: BrandMarkProps) {
-  // Note: variant is used for potential future mobile/desktop differences
+export function BrandMark() {
   return (
     <div className="relative flex items-center">
       <Image
