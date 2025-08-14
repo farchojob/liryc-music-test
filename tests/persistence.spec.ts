@@ -167,7 +167,7 @@ test.describe("State Persistence", () => {
 
     // Refresh the page
     await page.reload();
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState("networkidle");
     await page.waitForSelector('[data-testid="band-card"]', { timeout: 15000 });
 
     // Should show all bands (cleared state persisted)
