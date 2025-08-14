@@ -1,22 +1,17 @@
 import { Metadata } from "next";
-import { headers } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
 
 import { AppLayout } from "@/components/AppLayout";
 
-async function getBaseUrl() {
-  const h = await headers();
-  const host = h.get("x-forwarded-host") ?? h.get("host");
-  const proto = h.get("x-forwarded-proto") ?? "http";
-  return `${proto}://${host}`;
-}
-
 async function fetchDetail(id: string) {
-  const base = await getBaseUrl();
-  const res = await fetch(`${base}/api/bands/${id}`, { cache: "no-store" });
-  if (!res.ok) throw new Error("Failed to fetch band detail");
-  return res.json();
+  // For SSR, we can call the API route directly instead of making HTTP requests
+  const { GET } = await import("@/app/api/bands/[id]/route");
+  const request = new Request(`http://localhost/api/bands/${id}`);
+  const response = await GET(request, { params: Promise.resolve({ id }) });
+
+  if (!response.ok) throw new Error("Failed to fetch band detail");
+  return response.json();
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
