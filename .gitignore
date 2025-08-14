@@ -4,6 +4,10 @@
 /node_modules
 /.pnp
 .pnp.*
+
+# Package manager lock files (keep only package-lock.json for npm)
+yarn.lock
+pnpm-lock.yaml
 .yarn/*
 !.yarn/patches
 !.yarn/plugins

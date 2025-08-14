@@ -1,0 +1,14 @@
+[
+    { "id": "001", "band_name": "The Velvet Echo", "album": "Whispers in the Wind", "genre": "rock" },
+    { "id": "002", "band_name": "Silver Strings", "album": "Resonance", "genre": "country" },
+    { "id": "003", "band_name": "Electric Tide", "album": "Waves of Voltage", "genre": "rock" },
+    { "id": "004", "band_name": "Crimson Groove", "album": "Scarlet Rhythms", "genre": "pop" },
+    { "id": "005", "band_name": "Neon Reverie", "album": "Echoes of Tomorrow", "genre": "pop" },
+    { "id": "006", "band_name": "Echo Drift", "album": "Drifting Soundscapes", "genre": "rock" },
+    { "id": "007", "band_name": "Starlight Rebels", "album": "Cosmic Revolt", "genre": "pop" },
+    { "id": "008", "band_name": "Aurora Vibe", "album": "Northern Lights", "genre": "country" },
+    { "id": "009", "band_name": "Midnight Sonar", "album": "After Dark", "genre": "rock" },
+    { "id": "010", "band_name": "Blazing Nova", "album": "Solar Flare", "genre": "pop" },
+    { "id": "011", "band_name": "Harmonic Pulse", "album": "Rhythmic Harmony", "genre": "country" },
+    { "id": "012", "band_name": "Fusion Zenith", "album": "Zenith Rhapsody", "genre": "rock" }
+]
