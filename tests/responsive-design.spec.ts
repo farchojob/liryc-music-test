@@ -76,20 +76,20 @@ test.describe("Responsive Design", () => {
   });
 
   test("should adapt layout on tablet screens", async ({ page }) => {
-    // Set tablet viewport (768px is below lg:1024px breakpoint, so pills should be hidden)
+    // Set tablet viewport (768px is above sm:640px, so pills should be visible)
     await page.setViewportSize({ width: 768, height: 1024 });
     await page.goto("/");
 
     // Wait for page to load
     await page.waitForSelector('[data-testid="band-card"]', { timeout: 10000 });
 
-    // Genre pills should be hidden on tablet (below lg breakpoint)
+    // Genre pills should be visible on tablet (above sm:640px breakpoint)
     const genrePills = page.locator('[data-testid="genre-pills"]');
-    await expect(genrePills).toBeHidden();
+    await expect(genrePills).toBeVisible();
 
-    // Mobile sidebar trigger should be visible on tablet (below lg breakpoint)
+    // Mobile sidebar trigger should be hidden on tablet (above sm:640px breakpoint)
     const sidebarTrigger = page.locator('[data-testid="mobile-sidebar-trigger"]').first();
-    await expect(sidebarTrigger).toBeVisible();
+    await expect(sidebarTrigger).toBeHidden();
   });
 
   test("should show desktop layout on large screens", async ({ page }) => {

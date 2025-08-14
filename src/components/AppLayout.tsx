@@ -22,7 +22,7 @@ export function AppLayout({ left }: AppLayoutProps) {
           : "max-w-[1267px] lg:grid-cols-1"
       }`}
     >
-      <div id="main-content" data-testid="main-content" className="flex h-full flex-col gap-8">
+      <div data-testid="main-content" className="flex h-full flex-col gap-8">
         <header className="bg-panel flex h-[89px] w-full items-center rounded-[10px] px-4 sm:px-6">
           <HeaderBar />
         </header>

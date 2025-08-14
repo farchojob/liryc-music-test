@@ -164,7 +164,7 @@ test.describe("Basic Functionality", () => {
   });
 
   test("should maintain search state when typing", async ({ page }) => {
-    const searchInput = page.locator('input[placeholder*="Search"]');
+    const searchInput = page.locator('input[placeholder*="Search"]').first();
 
     // Type gradually and check that state is maintained
     await searchInput.fill("V");

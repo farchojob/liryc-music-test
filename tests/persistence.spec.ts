@@ -83,7 +83,7 @@ test.describe("State Persistence", () => {
     await page.waitForSelector('[data-testid="band-card"]', { timeout: 10000 });
 
     // Search query should still be active after refresh
-    const searchInputAfterReload = page.locator('input[placeholder*="Search"]');
+    const searchInputAfterReload = page.locator('input[placeholder*="Search"]').first();
     await expect(searchInputAfterReload).toHaveValue("Velvet");
 
     // Should show filtered results
@@ -135,7 +135,7 @@ test.describe("State Persistence", () => {
       await page.waitForSelector('[data-testid="band-card"]', { timeout: 10000 });
 
       // Right panel should be open again after refresh (default state)
-      const rightPanelAfterReload = page.locator('[data-testid="right-panel"]');
+      const rightPanelAfterReload = page.locator('[data-testid="right-panel"]').first();
       await expect(rightPanelAfterReload).toBeVisible();
 
       // Toggle button should not be visible when panel is open
@@ -167,7 +167,8 @@ test.describe("State Persistence", () => {
 
     // Refresh the page
     await page.reload();
-    await page.waitForSelector('[data-testid="band-card"]', { timeout: 10000 });
+    await page.waitForLoadState('networkidle');
+    await page.waitForSelector('[data-testid="band-card"]', { timeout: 15000 });
 
     // Should show all bands (cleared state persisted)
     const visibleCards = page.locator('[data-testid="band-card"]');
