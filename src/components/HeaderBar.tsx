@@ -20,6 +20,36 @@ import { MobileSidebar } from "./MobileSidebar";
 
 const GENRES: Genre[] = ["all", "country", "rock", "pop"];
 
+/**
+ * Calculate responsive classes for genre pills based on panel state and screen size
+ * - lg+ (1024px+): Right panel is beside content, space is limited
+ * - < lg (1024px): Right panel is below content, more horizontal space available
+ */
+function getGenrePillClasses(genre: Genre, isRightPanelOpen: boolean): string {
+  // Simple breakpoint system
+  const breakpoints = {
+    pop: {
+      panelOpen: "hidden xl:inline-flex", // 1280px+
+      panelClosed: "hidden lg:inline-flex", // 1024px+
+    },
+    rock: {
+      panelOpen: "hidden min-[1200px]:inline-flex", // 1200px+
+      panelClosed: "hidden min-[900px]:inline-flex", // 900px+
+    },
+    country: {
+      panelOpen: "hidden min-[1000px]:inline-flex", // 1000px+
+      panelClosed: "hidden min-[800px]:inline-flex", // 800px+
+    },
+    all: {
+      panelOpen: "inline-flex", // Always visible
+      panelClosed: "inline-flex", // Always visible
+    },
+  };
+
+  const config = breakpoints[genre];
+  return isRightPanelOpen ? config.panelOpen : config.panelClosed;
+}
+
 export function HeaderBar() {
   const { selectedGenre, searchQuery, setGenre, setSearchQuery } = useFiltersStore();
   const { isRightPanelOpen, openRightPanel } = useUiStore();
@@ -28,33 +58,52 @@ export function HeaderBar() {
     <nav className="w-full" role="navigation" aria-label="Main navigation">
       {/* Always desktop layout with responsive adjustments */}
       <div className="flex w-full items-center gap-2 sm:gap-4 lg:gap-8">
-        {/* Mobile sidebar - show when genre pills are hidden */}
-        <div className="lg:hidden">
+        {/* Mobile sidebar - show on small screens only */}
+        <div className="sm:hidden">
           <MobileSidebar />
         </div>
 
         <BrandMark />
 
-        {/* Genre pills - hide on small/medium screens, show on lg+ */}
+        {/* Genre pills - show on larger screens */}
         <div
           data-testid="genre-pills"
-          className="hidden items-center gap-3 lg:flex"
+          className="hidden items-center gap-3 sm:flex"
           role="group"
           aria-label="Filter bands by genre"
         >
           <ClientOnly
             fallback={
               // Show "All" as active during SSR/initial load
-              GENRES.map(g => {
-                const label = g === "all" ? "All" : g[0].toUpperCase() + g.slice(1);
-                return <GenrePill key={g} active={g === "all"} label={label} onClick={() => setGenre(g)} />;
-              })
+              <>
+                {GENRES.map(g => {
+                  const label = g === "all" ? "All" : g[0].toUpperCase() + g.slice(1);
+                  return (
+                    <GenrePill
+                      key={g}
+                      active={g === "all"}
+                      label={label}
+                      onClick={() => setGenre(g)}
+                      className={getGenrePillClasses(g, isRightPanelOpen)}
+                    />
+                  );
+                })}
+              </>
             }
           >
             {GENRES.map(g => {
               const label = g === "all" ? "All" : g[0].toUpperCase() + g.slice(1);
               const active = selectedGenre === g;
-              return <GenrePill key={g} active={active} label={label} onClick={() => setGenre(g)} />;
+
+              return (
+                <GenrePill
+                  key={g}
+                  active={active}
+                  label={label}
+                  onClick={() => setGenre(g)}
+                  className={getGenrePillClasses(g, isRightPanelOpen)}
+                />
+              );
             })}
           </ClientOnly>
         </div>
@@ -71,7 +120,7 @@ export function HeaderBar() {
           <Input
             id="band-search"
             type="search"
-            placeholder="Search bands..."
+            placeholder="Search ..."
             value={searchQuery}
             onChange={e => setSearchQuery(e.currentTarget.value)}
             className="bg-search h-[36px] rounded-[18px] border-0 pl-9 focus-visible:border-0 focus-visible:ring-0"
