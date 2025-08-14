@@ -7,8 +7,7 @@ type BrandMarkProps = {
 };
 
 export function BrandMark({ variant }: BrandMarkProps) {
-  const isMobile = variant === "mobile";
-
+  // Note: variant is used for potential future mobile/desktop differences
   return (
     <div className="relative flex items-center">
       <Image

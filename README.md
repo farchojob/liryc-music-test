@@ -1,16 +1,16 @@
 # 🎵 Lyric Music - Frontend Challenge
 
-A modern, responsive music band discovery application built with Next.js 15, TypeScript, and TailwindCSS. Features a pixel-perfect design, advanced filtering, and comprehensive E2E testing.
+A modern, responsive music band discovery application built with Next.js 15, TypeScript, and TailwindCSS. Features a high-fidelity design implementation, advanced filtering, and comprehensive E2E testing.
 
 ## 🚀 Features
 
-- **🎨 Pixel-Perfect Design**: Matches the provided Sketch design with exact dimensions and styling
+- **🎨 High-Fidelity Design**: Closely follows the provided Sketch design with accurate dimensions and styling
 - **📱 Fully Responsive**: Optimized for mobile, tablet, and desktop with smooth transitions
 - **🔍 Advanced Search & Filtering**: Real-time search with genre filters and localStorage persistence
 - **🎭 Dynamic Content**: Band data fetched from JSON with fallback handling
-- **🌓 Theme Support**: Light/dark theme compatibility with shadcn/ui components
+- **🎨 Modern UI**: Professional components with shadcn/ui design system
 - **⚡ Performance Optimized**: Built with Next.js 15 App Router and optimized images
-- **🧪 Comprehensive Testing**: 44 E2E tests covering all functionality
+- **🧪 Comprehensive Testing**: 220 E2E tests covering all functionality across multiple browsers and devices
 
 ## 🛠️ Tech Stack
 
@@ -43,8 +43,8 @@ A modern, responsive music band discovery application built with Next.js 15, Typ
 
 ```bash
 # Clone the repository
-git clone <repository-url>
-cd liryc-music
+git clone https://github.com/farchojob/liryc-music-test.git
+cd liryc-music-test
 
 # Install dependencies (uses npm exclusively)
 npm install
@@ -101,11 +101,13 @@ The project includes VS Code settings for automatic formatting on save. Install 
 
 ### E2E Testing with Playwright
 
-I have implemented comprehensive end-to-end testing with **44 tests** covering all functionality:
+I have implemented comprehensive end-to-end testing with **220 tests** covering all functionality across multiple browsers and devices:
 
 #### Test Suites
 
-1. **Basic Functionality (7 tests)**
+**43 unique test scenarios** running across **5 browsers/devices** = **220 total test executions**
+
+1. **Basic Functionality (6 tests)**
    - Band loading from JSON
    - Real-time search functionality
    - Genre filtering system
@@ -185,13 +187,13 @@ Tests run on multiple browsers and devices:
 ```
 liryc-music/
 ├── src/
-│   ├── app/                    # Next.js App Router pages
-│   │   ├── api/               # API routes for band data
-│   │   ├── band/[id]/         # Dynamic band detail pages
-│   │   ├── globals.css        # Global styles and CSS variables
-│   │   ├── layout.tsx         # Root layout
-│   │   └── page.tsx           # Home page
-│   ├── components/            # React components
+│   ├── app/                  # Next.js App Router pages
+│   │   ├── api/              # API routes for band data
+│   │   ├── band/[id]/        # Dynamic band detail pages
+│   │   ├── globals.css       # Global styles and CSS variables
+│   │   ├── layout.tsx        # Root layout
+│   │   └── page.tsx          # Home page
+│   ├── components/           # React components
 │   │   ├── ui/               # shadcn/ui components
 │   │   ├── AppLayout.tsx     # Main layout wrapper
 │   │   ├── BandCard.tsx      # Individual band card
@@ -205,7 +207,7 @@ liryc-music/
 │   ├── hooks/                # Custom React hooks
 │   ├── store/                # Zustand stores
 │   │   ├── filters.ts        # Filter state management
-│   │   └── ui.ts            # UI state management
+│   │   └── ui.ts             # UI state management
 │   └── types/                # TypeScript type definitions
 ├── tests/                    # Playwright E2E tests
 │   ├── basic-functionality.spec.ts
@@ -224,15 +226,17 @@ liryc-music/
 ### Colors
 
 - **Primary**: `rgba(0, 114, 100, 1)` - Accent color for active states
-- **Background**: Dynamic based on theme
-- **Text**: Hierarchical with muted variants
-- **Panel**: `rgba(15, 15, 15, 1)` for dark theme
+- **Background**: Dark theme with professional contrast
+- **Text**: Hierarchical with muted variants (`#9c9c9c` for secondary text)
+- **Panel**: `rgba(15, 15, 15, 1)` for cards and panels
 
 ### Typography
 
-- **Font Family**: Inter (system fallback)
-- **Sizes**: Responsive scaling with CSS variables
-- **Weights**: 400 (normal), 700 (bold)
+- **Font Family**: Inter (Regular 400, Bold 700) loaded via Next.js font optimization
+- **Band Names**: Inter-Bold for emphasis
+- **Album Names & Body Text**: Inter-Regular for readability
+- **Genre Pills**: Inter-Regular with 18px font size
+- **Responsive Scaling**: CSS variables for consistent sizing
 
 ### Spacing & Layout
 
@@ -342,7 +346,3 @@ DEBUG=pw:api npm run test:e2e
 ✅ **Static Content**: Right panel with placeholder content
 ✅ **Stretch Goals**: Panel toggle, state persistence, navigation
 ✅ **Plus**: Comprehensive E2E testing with Playwright
-
----
-
-**Built with ❤️ using modern web technologies and best practices.**

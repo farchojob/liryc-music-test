@@ -1,12 +1,11 @@
 /**
- * Root layout for the App Router. We mount Theme and React Query providers here
- * to make them available across all routes.
+ * Root layout for the App Router. We mount React Query provider here
+ * to make it available across all routes.
  */
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import { ReactQueryProvider } from "@/providers/ReactQueryProvider";
-import { ThemeProvider } from "@/providers/ThemeProvider";
 
 import "./globals.css";
 
@@ -30,9 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} antialiased`}>
-        <ThemeProvider>
-          <ReactQueryProvider>{children}</ReactQueryProvider>
-        </ThemeProvider>
+        <ReactQueryProvider>{children}</ReactQueryProvider>
       </body>
     </html>
   );

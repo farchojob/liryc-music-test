@@ -7,7 +7,6 @@ import { Suspense } from "react";
 
 import { AppLayout } from "@/components/AppLayout";
 import { BandGrid } from "@/components/BandGrid";
-import { SplitLayout } from "@/components/SplitLayout";
 
 export default function Home() {
   return (

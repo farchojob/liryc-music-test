@@ -9,7 +9,7 @@ import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 
 import { useQuery } from "@tanstack/react-query";
-import { Flag, X } from "lucide-react";
+import { X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -69,19 +69,19 @@ export function RightPanel() {
         </div>
         <div className="text-muted-foreground text-panel-body flex-1 space-y-4 text-base">
           <p className="pr-4 pl-2">
-            We're thrilled to have you join us on this musical journey! Lyric Music is your gateway to a fresh and
-            immersive way to enjoy the bands and artists you love. Whether you're searching for your all-time favorite
-            tracks, exploring curated playlists crafted to fit every mood, or discovering new songs that will soon
-            become your go-to anthems, Lyric Music is here to elevate your listening experience.
+            We&apos;re thrilled to have you join us on this musical journey! Lyric Music is your gateway to a fresh and
+            immersive way to enjoy the bands and artists you love. Whether you&apos;re searching for your all-time
+            favorite tracks, exploring curated playlists crafted to fit every mood, or discovering new songs that will
+            soon become your go-to anthems, Lyric Music is here to elevate your listening experience.
           </p>
           <p className="pr-4 pl-2">
             Imagine having the perfect soundtrack for every moment of your life, from energizing workouts to peaceful
             evenings under the stars. With an intuitive interface designed to make finding music effortless and
-            enjoyable, you'll spend less time searching and more time grooving. Best of all, it's completely
+            enjoyable, you&apos;ll spend less time searching and more time grooving. Best of all, it&apos;s completely
             free—because we believe that great music should be accessible to everyone.
           </p>
           <p className="pr-4 pl-2">
-            At Lyric Music, we're passionate about creating a community where music lovers like you can explore,
+            At Lyric Music, we&apos;re passionate about creating a community where music lovers like you can explore,
             connect, and celebrate the power of sound. So dive in, press play, and let the music move you. Welcome to
             your new favorite way to listen.
           </p>
